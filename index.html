@@ -4,24 +4,25 @@
 <head>
     <meta charset="utf-8">
     <title>Chess</title>
-
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-
 </head>
 
 <body>
-    <div id="app">
-        <p>{{ message }}</p>
-    </div>
-</body>
-
-<script>
-    let app = new Vue({
-        el: "#app",
-        data: {
-            message: "Hello!!! Vue.js!!!"
+    <script type="importmap">
+        {
+            "imports": {
+                "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+            }
         }
-    })
-</script>
+    </script>
+
+    <div id="app"></div>
+
+    <script type="module">
+        import { createApp } from 'vue'
+        import MyComponent from './main.js'
+
+        createApp(MyComponent).mount('#app')
+    </script>
+</body>
 
 </html>
